@@ -19,6 +19,7 @@ static ConVar			g_hPhysTimescale;
 static void				GameSpeed(const float speed)
 {
 	int					idx;
+	int					clientViewModel;
 
 	idx = 1;
 	SetConVarFloat(g_hPhysTimescale, speed);
@@ -27,6 +28,11 @@ static void				GameSpeed(const float speed)
 		if (IsClientInGame(idx) && !IsClientSourceTV(idx))
 		{
 			SetEntPropFloat(idx, Prop_Data, "m_flLaggedMovementValue", speed);
+			clientViewModel = GetEntPropEnt(idx, Prop_Send, "m_hViewModel");
+			if (IsValidEntity(clientViewModel))
+			{
+				SetEntPropFloat(clientViewModel, Prop_Send, "m_flPlaybackRate", speed);
+			}
 		}
 		idx += 1;
 	}

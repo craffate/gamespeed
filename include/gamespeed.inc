@@ -5,7 +5,7 @@
 #if !defined GAMESPEED_INC
 	#define GAMESPEED_INC
 
-	#define GAMESPEED_VERSION "1.0.0"
+	#define GAMESPEED_VERSION "1.1.0"
 	#define GAMESPEED_LIBRARY_NAME "gamespeed"
 	#define GAMESPEED_FILE_NAME "gamespeed.smx"
 
